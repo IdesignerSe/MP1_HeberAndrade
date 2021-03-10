@@ -13,15 +13,16 @@ namespace MP1_HeberAndrade
             Console.WriteLine($"       Welcomen to IDESIGNER.SE\n");
 
             Console.WriteLine($">.........................................<\n");
-            Console.ResetColor();
+
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"              INVENTORY        \n");
             Console.WriteLine($">.........................................<\n");
-
-            Console.WriteLine($"What product are you looking for? :\n\nPRESS Key ENTER\n\nOR 'q' TO QUIT.\n");
             Console.ResetColor();
 
-            Console.Write($" Write the name of the product looking for: ? : ");
+            Console.WriteLine($"Wich product are you looking for?\n\nPRESS Key to ENTER\n\nOR 'q' TO QUIT.\n");
+            Console.ResetColor();
+
+            Console.Write($"Write the name product: ");
             productName = Console.ReadLine();
 
             while (true)
