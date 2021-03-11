@@ -29,7 +29,7 @@ namespace MP1_HeberAndrade
             var item = itemName;
 
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write($"\nYou wrote : " + " * " + itemName);
+            Console.Write($"\nYou asked for : " + " * * * " + itemName);
             Console.ResetColor();
 
             List<Asset> assets = new List<Asset>();
@@ -61,6 +61,21 @@ namespace MP1_HeberAndrade
                             new Asset("Acer", "Pro 2018 15 inch ", 20180101, 13000, 20211201, 8000),
                             new Asset("Acer", "Pro 2017 15 inch ", 20170101, 10000, 20201201, 4000)
                         });
+
+            Asset asset2 = new Asset("iphone", "11 Pro ", 20200101, 13000, 20230101, 4000);
+            assets.Add(asset1);
+            assets.Add(new Asset("Samsung", "Galaxy S21 Ultra", 20190101, 13000, 20221201, 4000));
+
+            assets.AddRange(new List<Asset>
+                        {
+                            new Asset("Samsung", "Note 20 Ultra 5G", 20190101, 13000, 20221201, 4000),
+                            new Asset("Nokia", "225 4G", 20180101, 13000, 20211201, 8000),
+                            new Asset("OnePlus", "8T Cyberpunk 2077", 20170101, 10000, 20201201, 4000),
+                            new Asset("iPhone", "SE", 20160101, 13000, 20191201, 8000),
+                            new Asset("Nokia", "215 4G", 20150101, 13000, 20181201, 8000)
+
+                        });
+
 
             Console.WriteLine($"\n\nOur actual Inventory is : \n");
             Console.WriteLine($">......................................................................<\n");
@@ -136,6 +151,27 @@ namespace MP1_HeberAndrade
             public int ExpiredCost { get; set; }
 
         }
-  
+
+        class Phone
+        {
+            public Phone(string brand, string modelName, int purchaseDate, int inicialCost, int expiredDate, int expiredCost)
+            {
+                Brand = brand;
+                ModelName = modelName;
+                PurchaseDate = purchaseDate;
+                InicialCost = inicialCost;
+                ExpiredDate = expiredDate;
+                ExpiredCost = expiredCost;
+            }
+
+            public string Brand { get; set; }
+            public string ModelName { get; set; }
+            public int PurchaseDate { get; set; }
+            public int InicialCost { get; set; }
+            public int ExpiredDate { get; set; }
+            public int ExpiredCost { get; set; }
+
+        }
+
     }
 }
