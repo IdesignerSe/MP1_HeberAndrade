@@ -7,6 +7,7 @@ namespace MP1_HeberAndrade
         static void Main(string[] args)
         {
             string productName;
+            productName = "produkt";
 
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine($">.........................................<\n");
@@ -24,6 +25,14 @@ namespace MP1_HeberAndrade
 
             Console.Write($"Write the name product: ");
             productName = Console.ReadLine();
+            var product = productName;
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write($"\nYou wrote : " + " * " + product);
+            Console.ResetColor();
+
+            Console.WriteLine($"\n\nENTER TO SEE OUR INVENTORY\n\nOR 'q' TO QUIT.\n");
+
 
             while (true)
             {
@@ -38,7 +47,6 @@ namespace MP1_HeberAndrade
 
                 if (insert != "q")
                 {
-
                 }
             }
         }
