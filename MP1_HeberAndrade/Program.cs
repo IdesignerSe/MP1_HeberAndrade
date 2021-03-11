@@ -66,11 +66,9 @@ namespace MP1_HeberAndrade
 
                         });
 
-
             Console.WriteLine($"\n\nOur actual Inventory is : \n");
             Console.WriteLine($">......................................................................<\n");
             Console.ForegroundColor = ConsoleColor.Red;
-
 
             Console.WriteLine("Brand".PadRight(10)
                 + "Model".PadRight(20)
@@ -81,15 +79,12 @@ namespace MP1_HeberAndrade
 
             foreach (Asset asset in assets)
             {
-
-
                 Console.WriteLine(asset.Brand.PadRight(10)
                     + asset.ModelName.PadRight(20)
                     + asset.PurchaseDate.ToString().PadRight(10)
                     + asset.InicialCost.ToString().PadRight(10)
                     + asset.ExpiredDate.ToString().PadRight(10)
                     + asset.ExpiredCost);
-
             }
             Console.ResetColor();
 
