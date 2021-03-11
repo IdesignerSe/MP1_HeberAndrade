@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MP1_HeberAndrade
 {
@@ -29,12 +30,10 @@ namespace MP1_HeberAndrade
             var item = itemName;
 
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write($"\nYou asked for : " + " * * * " + itemName);
+            Console.Write($"\nYou have asked for : " + " *** " + itemName + " *** ");
             Console.ResetColor();
 
             List<Asset> assets = new List<Asset>();
-
-
             Asset asset1 = new Asset("MacBook", "Pro 2020 16 inch ", 20200101, 13000, 20230101, 4000);
             assets.Add(asset1);
             assets.Add(new Asset("MacBook", "Pro 2019 16 inch ", 20190101, 13000, 20221201, 4000));
@@ -86,6 +85,27 @@ namespace MP1_HeberAndrade
                     + asset.ExpiredDate.ToString().PadRight(10)
                     + asset.ExpiredCost);
             }
+
+            Console.WriteLine("..............................................................\n");
+            Console.WriteLine("Items sorted by 'Purchase Date'\n");
+            assets = assets.OrderBy(assets => assets.PurchaseDate).ToList();
+            Console.WriteLine("Brand".PadRight(10)
+                 + "Model".PadRight(20)
+                 + "Date".ToString().PadRight(10)
+                 + "Cost".PadRight(9)
+                 + "Exp.Date".PadRight(10)
+                 + "Exp.Cost\n".PadRight(15));
+
+            foreach (Asset asset in assets)
+            {
+                Console.WriteLine(asset.Brand.PadRight(10)
+                    + asset.ModelName.PadRight(20)
+                    + asset.PurchaseDate.ToString().PadRight(10)
+                    + asset.InicialCost.ToString().PadRight(10)
+                    + asset.ExpiredDate.ToString().PadRight(10)
+                    + asset.ExpiredCost);
+            }
+
             Console.ResetColor();
 
             Console.WriteLine($"\n\n\nENTER 'q' TO QUIT.\n");
@@ -93,7 +113,6 @@ namespace MP1_HeberAndrade
 
             while (true)
             {
-
                 string insert = Console.ReadLine();
 
                 if (insert == "q")
@@ -106,10 +125,8 @@ namespace MP1_HeberAndrade
                 {
                 }
             }
-
         }
 
-        //Clases
         class Asset
         {
             public Asset(string brand, string modelName, int purchaseDate, int inicialCost, int expiredDate, int expiredCost)
