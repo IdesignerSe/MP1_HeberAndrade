@@ -34,16 +34,6 @@ namespace MP1_HeberAndrade
 
             List<Asset> assets = new List<Asset>();
 
-            //            2020.MacBook Pro(13 - inch, M1, 2020)...
-            //2019.MacBook Pro(16 - inch, 2019)...
-            //2018.MacBook Pro(15 - inch, 2018)...
-            //2017.MacBook Pro(15 - inch, 2017)...
-            //2016.MacBook Pro(15 - inch, 2016)...
-            //2015.MacBook Pro(Retina, 15 - inch, Mid 2015)...
-            //2014.MacBook Pro(Retina, 15 - inch, Mid 2014)...
-
-            //Brand / ModelName / Date Purchase /Ini Cost /Exp. Date / Exp. Cost
-
 
             Asset asset1 = new Asset("MacBook", "Pro 2020 16 inch ", 20200101, 13000, 20230101, 4000);
             assets.Add(asset1);
@@ -82,9 +72,6 @@ namespace MP1_HeberAndrade
             Console.ForegroundColor = ConsoleColor.Red;
 
 
-            //Brand / ModelName / Date Purchase /Ini Cost /Exp. Date / Exp. Cost
-
-
             Console.WriteLine("Brand".PadRight(10)
                 + "Model".PadRight(20)
                 + "Date".ToString().PadRight(10)
@@ -94,10 +81,7 @@ namespace MP1_HeberAndrade
 
             foreach (Asset asset in assets)
             {
-                //Asset is the object of the list
-                //car or asset is a temporal interna variable
-                // in instruction to put in asset in assets
-                //assets is the list ittself
+
 
                 Console.WriteLine(asset.Brand.PadRight(10)
                     + asset.ModelName.PadRight(20)
