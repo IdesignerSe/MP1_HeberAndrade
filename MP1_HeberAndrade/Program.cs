@@ -28,7 +28,7 @@ namespace MP1_HeberAndrade
             Console.ForegroundColor = ConsoleColor.Red;
 
             Console.WriteLine($"              INVENTORY        \n");
-            Console.WriteLine($">..............................................................<\n");
+            Console.WriteLine($">.............................................................<\n");
             Console.ResetColor();
 
             Console.WriteLine($"Wich item are you looking for?\n\nPRESS Key to ENTER\n\nOR 'q' TO QUIT.\n");
@@ -72,7 +72,7 @@ namespace MP1_HeberAndrade
                         });
 
             Console.WriteLine($"\n\nOur actual Inventory is : \n");
-            Console.WriteLine($">......................................................................<\n");
+            Console.WriteLine($">.............................................................<\n");
 
             Console.WriteLine("Brand".PadRight(10)
                 + "Model".PadRight(20)
