@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MP1_HeberAndrade
 {
@@ -10,17 +11,26 @@ namespace MP1_HeberAndrade
             string itemName;
             itemName = "item";
 
+            DateTime dateNow = new DateTime();
+            dateNow = DateTime.Now;
+
+            string dateNowOnly = dateNow.ToShortDateString();
+            string PurchaseDay = new DateTime(2007, 10, 12).ToString();
+            string ExpiredDate = new DateTime(201, 10, 12).ToString();
+
+            int lifeTimeOfItem = (365 * 3);
+            int expriresAt = (lifeTimeOfItem - 90);
+
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine($">.............................................................<\n");
             Console.WriteLine($"       Welcomen to IDESIGNER.SE\n");
-
             Console.WriteLine($">.............................................................<\n");
-
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"              INVENTORY        \n");
-            Console.WriteLine($">..............................................................<\n");
 
+            Console.WriteLine($"              INVENTORY        \n");
+            Console.WriteLine($">.............................................................<\n");
             Console.ResetColor();
+
             Console.WriteLine($"Wich item are you looking for?\n\nPRESS Key to ENTER\n\nOR 'q' TO QUIT.\n");
             Console.ResetColor();
 
@@ -29,12 +39,10 @@ namespace MP1_HeberAndrade
             var item = itemName;
 
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write($"\nYou asked for : " + " * * * " + itemName);
+            Console.Write($"\nYou have asked for : " + " *** " + itemName + " *** ");
             Console.ResetColor();
 
             List<Asset> assets = new List<Asset>();
-
-
             Asset asset1 = new Asset("MacBook", "Pro 2020 16 inch ", 20200101, 13000, 20230101, 4000);
             assets.Add(asset1);
             assets.Add(new Asset("MacBook", "Pro 2019 16 inch ", 20190101, 13000, 20221201, 4000));
@@ -43,7 +51,6 @@ namespace MP1_HeberAndrade
                         {
                             new Asset("MacBook", "Pro 2018 15 inch ", 20180101, 13000, 20211201, 8000),
                             new Asset("MacBook", "Pro 2017 15 inch ", 20170101, 10000, 20201201, 4000),
-
                             new Asset("Lenovo", "Pro 2018 15 inch ", 20180101, 13000, 20211201, 8000),
                             new Asset("Lenovo", "Pro 2018 15 inch ", 20180101, 13000, 20211201, 8000),
                             new Asset("Asus", "Pro 2018 15 inch ", 20180101, 13000, 20211201, 8000),
@@ -55,7 +62,6 @@ namespace MP1_HeberAndrade
             Asset asset2 = new Asset("iphone", "11 Pro ", 20200101, 13000, 20230101, 4000);
             assets.Add(asset1);
             assets.Add(new Asset("Samsung", "Galaxy S21 Ultra", 20190101, 13000, 20221201, 4000));
-
             assets.AddRange(new List<Asset>
                         {
                             new Asset("Samsung", "Note 20 Ultra 5G", 20190101, 13000, 20221201, 4000),
@@ -63,14 +69,10 @@ namespace MP1_HeberAndrade
                             new Asset("OnePlus", "8T Cyberpunk 2077", 20170101, 10000, 20201201, 4000),
                             new Asset("iPhone", "SE", 20160101, 13000, 20191201, 8000),
                             new Asset("Nokia", "215 4G", 20150101, 13000, 20181201, 8000)
-
                         });
 
-
             Console.WriteLine($"\n\nOur actual Inventory is : \n");
-            Console.WriteLine($">......................................................................<\n");
-            Console.ForegroundColor = ConsoleColor.Red;
-
+            Console.WriteLine($">.............................................................<\n");
 
             Console.WriteLine("Brand".PadRight(10)
                 + "Model".PadRight(20)
@@ -81,20 +83,46 @@ namespace MP1_HeberAndrade
 
             foreach (Asset asset in assets)
             {
-
-
                 Console.WriteLine(asset.Brand.PadRight(10)
                     + asset.ModelName.PadRight(20)
                     + asset.PurchaseDate.ToString().PadRight(10)
                     + asset.InicialCost.ToString().PadRight(10)
                     + asset.ExpiredDate.ToString().PadRight(10)
                     + asset.ExpiredCost);
-
             }
+
+
+            //• Mark any item* RED* if purchase date is less than 3 months away from 3 years.
+
+            Console.WriteLine("..............................................................\n");
+            Console.WriteLine("\n\nItems sorted by 'Purchase Date'\n");
+
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.ResetColor();
 
-            Console.WriteLine($"\n\n\nENTER 'q' TO QUIT.\n");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\nItems in 'RED' are 3 months away from 3 years'\n");
+            Console.ResetColor();
 
+            assets = assets.OrderBy(assets => assets.PurchaseDate).ToList();
+            Console.WriteLine("Brand".PadRight(10)
+                 + "Model".PadRight(20)
+                 + "Date".ToString().PadRight(10)
+                 + "Cost".PadRight(9)
+                 + "Exp.Date".PadRight(10)
+                 + "Exp.Cost\n".PadRight(15));
+
+            foreach (Asset asset in assets)
+            {
+                Console.WriteLine(asset.Brand.PadRight(10)
+                    + asset.ModelName.PadRight(20)
+                    + asset.PurchaseDate.ToString().PadRight(10)
+                    + asset.InicialCost.ToString().PadRight(10)
+                    + asset.ExpiredDate.ToString().PadRight(10)
+                    + asset.ExpiredCost);
+            }
+
+            Console.WriteLine($"\n\n\nENTER 'q' TO QUIT.\n");
 
             while (true)
             {
@@ -111,10 +139,8 @@ namespace MP1_HeberAndrade
                 {
                 }
             }
-
         }
 
-        //Clases
         class Asset
         {
             public Asset(string brand, string modelName, int purchaseDate, int inicialCost, int expiredDate, int expiredCost)
@@ -159,3 +185,5 @@ namespace MP1_HeberAndrade
 
     }
 }
+
+// Final
