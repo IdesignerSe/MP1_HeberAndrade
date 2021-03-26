@@ -141,6 +141,7 @@ namespace MP1_HeberAndrade
             }
         }
 
+
         class Asset
         {
             public Asset(string brand, string modelName, int purchaseDate, int inicialCost, int expiredDate, int expiredCost)
